@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+	
+		<div class="table-responsive" th:fragment="modos_agregar_mensajes">
+			<table class="table table-condensed" data-toggle="table">
+				<tbody>
+					<tr>
+						<td>
+							<!-- Menú de modos: agregar (crear), modificar o eliminar. La consulta 
+								 y el listado están implícitas, ya que cualquiera de las opciones 
+								despliega el listado.			 -->
+				 			<label for="menuModos">Escoja un acci&oacute;n a realizar:&nbsp;</label>
+							<select id="menuModos" onchange="cambioModo()" style="width:150px">
+								 <option value="x" selected>&nbsp;</option>
+							    <option value="crear">Agregar</option>
+							    <option value="modificar">Modificar</option>
+							    <option value="eliminar">Eliminar</option>
+							</select>
+					
+							<!-- Botón para crear nuevo registro -->
+							<button type="button" id="btnCrear" style="display:none">
+								+
+							</button>
+						</td>
+						<td>
+							<div class="toast" data-delay="5000" id="avisos" style="font-weight:bold;background-color:gold;"></div>
+						</td>
+						<td style="text-align:right">
+							<a href="/menu">Volver al menú</a>
+						</td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+
+
+		<footer class="footer mx-3" th:fragment="pie_pagina">
+			&reg;WA/GR/MD/DH 2022<br>
+			Proyecto <b>Servicio T&eacute;cnico SpA</b><br>
+			Spring/MVC
+		</footer>
+
+	</body>
+</html>
