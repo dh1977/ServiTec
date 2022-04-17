@@ -2,12 +2,11 @@ function ajax_listar(){
 	var token = $("meta[name='_csrf']").attr("content");
 	
    $.ajax({
-	   method : 'POST',
-	   url : '/clientes/listar'
+	   method: 'POST',
+	   url   : '/clientes/listar'
 	   ,headers : {"X-CSRF-TOKEN" : token}
 	})
 	.done( function(resp) {
-		// Cargo los datos en '#tablaDatos'
 		var tbody = '';
 		for ( let i=0; i < resp.length; i++) {
 			tbody += '<tr>';
@@ -28,9 +27,9 @@ function ajax_crear() {
 	var token = $("meta[name='_csrf']").attr("content");
 	
    $.ajax({
-      type : 'POST',
-      url  : '/clientes/crear',
-      data : { rut: $('#txtRut').val(), 
+      method: 'POST',
+      url   : '/clientes/crear',
+      data  : { rut: $('#txtRut').val(), 
       			nombre: $('#txtNombre').val(),
       			direccion: $('#txtDireccion').val(),
       			fono: $('#txtFono').val(),
@@ -148,8 +147,6 @@ function accion() {
 	}
 
 	if ( err == '' ) {
-		// Le doy tiempo a la solicitud ajax. Sin esto, no se actualizan 
-		// visualmente los datos de la tabla.
 		setTimeout( function() {ajax_listar()}, 500 );  // 500ms
 		$('#modalEdicion').modal('hide');
 	}
@@ -181,3 +178,4 @@ function validar_datos() {
 	
 	return msg;
 }
+

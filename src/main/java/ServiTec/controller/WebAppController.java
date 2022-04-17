@@ -34,5 +34,10 @@ public class WebAppController {
 	public String irEquipos() {
 		return("equipos");
 	}
-	
+
+	@RequestMapping("/ot")
+	public String irOT() {
+		return("OT");
+	}
+
 }

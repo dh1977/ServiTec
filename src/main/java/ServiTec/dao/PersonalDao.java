@@ -97,7 +97,7 @@ public class PersonalDao implements IPersonalDao {
 	@Override
 	public List<PersonalDto> listar() {
 		List<PersonalDto> ret = null;
-		String qry = "SELECT * FROM Personal";
+		String qry = "SELECT * FROM Personal ORDER BY cNombre";
 		
 		try {
 			ret = jdbcTemplate.query

@@ -15,7 +15,7 @@
 	</head>
 	
 	<body>
-		<script src="/js/clientes.js?version=1.01" ></script>
+		<script src="/js/clientes.js?version=1.02" ></script>
 		<script src="/js/lib.js?version=1.06" ></script>
 		
 		<script type="text/javascript">
@@ -34,8 +34,8 @@
 
 				if ( modoSelecc.val() == 'x' )
 					$('#tablaDatos tbody').html('');
-				else				
-					ajax_listar();
+				else
+					setTimeout( function() {ajax_listar()}, 500 );  // 500ms
 			}
 
 			$(document).ready(function() {

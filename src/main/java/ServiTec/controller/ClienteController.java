@@ -60,5 +60,6 @@ public class ClienteController {
 	public @ResponseBody List<ClienteDto> listar(HttpServletRequest req) {
 		return cliente.listar();
 	}
+	
 }
 
