@@ -2,22 +2,24 @@
 <html xmlns:th="http://www.thymeLeaf.org">
 	<head>
 		<meta charset="UTF-8">
-<!-- 		<meta name="_csrf" th:content="${_csrf.token}"/> -->
-		
+
  		<script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
 		<script type="text/javascript" src="/js/bootstrap.js"></script>
+		<script type="text/javascript" src="/js/toastr.min.js"></script>
 		
 		<link href="/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}" />
-		
 		<link href="/css/estilo_gral.css?version=1.01" rel="stylesheet" />
+		<link href="/css/toastr.min.css" rel="stylesheet" th:href="@{/css/toastr.min.css}" />
+		<link rel="shortcut icon" href="/images/favicon.png" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+ 		<meta name="_csrf" th:content="${_csrf.token}"/>
  		
 		<title>Equipos</title>
 	</head>
 	
 	<body>
 	
-		<script src="/js/equipos.js?version=1.03" ></script>
-		
+		<script src="/js/equipos.js?version=1.03" ></script>		
 		<script type="text/javascript">
 		
 			var modoSelecc;
@@ -43,21 +45,26 @@
 		</script>
 	
 		<div class="container-fluid ml-1">
-			<div class="jumbotron mt-2">
-				<h2>Equipos</h2>
+				<div class="jumbotron mt-2">
+				<div class="row">
+					<div class="offset-2 col-8">
+						<h2>Equipos</h2>
+					</div>
+					<div class="col-2">
+						<a href="/menuInicio_pag.html">
+							<button class="btn btn-warning">Volver</button>
+						</a> 
+					</div>
+				</div>
 			</div>
-			
-			<div class="container-fluid my-2 p-1" 
-					style="height:100%;border: 2px solid Teal; border-radius: 0.5rem">
-					<a href="/menu">Volver al Menú de Supervisor</a>
-			</div> 
+
 		
 			<!-- Menú de modos: agregar (crear), modificar o eliminar. La consulta 
 				 y el listado están implícitas, ya que cualquiera de las opciones 
 				despliega el listado.			 -->
  			<label for="menuModos">Escoja un acci&oacute;n a realizar:&nbsp;</label>
 			<select id="menuModos" onchange="cambioModo()" style="width:150px">
-				 <option value="x" selected>&nbsp;</option>
+				<option value="x" selected>&nbsp;</option>
 			    <option value="crear">Agregar</option>
 			    <option value="modificar">Modificar</option>
 			    <option value="eliminar">Eliminar</option>
@@ -89,7 +96,7 @@
 						<!-- Modal Header -->
 						<div class="modal-header">
 							<h4 class="modal-title">
-								
+									
 							</h4>
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
 						</div>
@@ -97,7 +104,7 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 							<div class="form-group" id="inputsModal">
-								<label class="label ml-2">ID:&nbsp;</label>
+								<label class="label ml-2">ID:</label>
 								<label id="lblId" class="label ml-2" style="border:1;width:100px"></label>
 								
 								<br>

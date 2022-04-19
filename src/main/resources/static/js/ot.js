@@ -1,6 +1,6 @@
 function ajax_listar(){
 	var token = $("meta[name='_csrf']").attr("content");
-	
+
    $.ajax({
 	   method : 'POST',
 	   url : '/ot/listar'
@@ -17,7 +17,7 @@ function ajax_listar(){
 						'<td>' + resp[i].cNombreSupervisor + '</td>' +
 						'<td>' + resp[i].fProgramada + '</td>' +
 						'<td>' + resp[i].fEjecucion + '</td>' +
-						'<td>' + resp[i].cObservaciones + '</td>';
+						'<td style="font-size:small;">' + resp[i].cObservaciones + '</td>';
 			tbody += '</tr>';
 		}
 		$('#tablaDatos tbody').html(tbody);
@@ -109,7 +109,9 @@ function ajax_consultar(id) {
    })
    .done( function (resp) {
 		// Lleno datos del modal
-		let ms = resp.nPeriodicidad;
+		var ms;
+		
+		setTimeout( () => {ms = resp.nPeriodicidad} );
 
 		$('.modal-title').append(' #'+id);
 		$('#txtContrato').val(resp.nContrato);
@@ -127,11 +129,15 @@ function ajax_consultar(id) {
 
 function nuevaOT() {
 	// Limpio campos del modal, cambio el título
-	$('.modal-body input').val('');
+	$('#txtContrato').val('');
 	$('#datosContrato').html('');
 	llenarListaPersonal('0');
+	$('#txtfProg').val('');
+	$('#txtfEjec').val('');
+	$('#txtObs').val('');
 	readOnlyModal(true,false);
 	$('.modal-title').html('Nueva O.T.');
+	$('#btnOk').text('Grabar');
 	
 	// ...y lo abro 
 	$("#modalEdicion").modal('show');
@@ -182,7 +188,7 @@ function accion() {
 	let err='';
 	
 	if ( op == 'eliminar' ) 
-		if ( $('txtfEjec').val() != '' ) 
+		if ( $('#txtfEjec').val() != '' ) 
 			alert('No puede eliminar una OT ya ejecutada.');
 		else if ( confirm('Confirme la eliminación de esta OT.') )
 			ajax_eliminar();
@@ -213,6 +219,7 @@ function validar_datos() {
 	let idPersona = $('#selAsigna').children(':selected').val();
 	let fProg = $('#txtfProg').val().trim();
 	let fEjec = $('#txtfEjec').val().trim();
+	let op = modoSelecc.val();
 
 	let msg = '';
 	if ( nContrato == '' )
@@ -221,7 +228,7 @@ function validar_datos() {
 		msg = 'Indique la persona que asigna el trabajo.';
 	else if ( fProg == '' )
 		msg = 'Falta la fecha programada.';
-	else if ( fProg < Date.now() )
+	else if ( op == 'crear' && fProg < aaaa_mm_dd(Date.now()) )
 		msg = 'La fecha programada es anterior a hoy.';
 	else if ( fEjec != '' && fEjec < fProg )
 		msg = 'Fecha de ejecución es anterior a la programada.';

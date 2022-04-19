@@ -2,14 +2,17 @@
 <html xmlns:th="http://www.thymeLeaf.org">
 	<head>
 		<meta charset="UTF-8">
-<!-- 		<meta name="_csrf" th:content="${_csrf.token}"/> -->
 
  		<script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
 		<script type="text/javascript" src="/js/bootstrap.js"></script>
+		<script type="text/javascript" src="/js/toastr.min.js"></script>
 		
 		<link href="/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}" />
-		
 		<link href="/css/estilo_gral.css?version=1.01" rel="stylesheet" />
+		<link href="/css/toastr.min.css" rel="stylesheet" th:href="@{/css/toastr.min.css}" />
+		<link rel="shortcut icon" href="/images/favicon.png" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+ 		<meta name="_csrf" th:content="${_csrf.token}"/>
  		
 		<title>Clientes</title>
 	</head>
@@ -114,34 +117,37 @@
 		
 						<!-- Modal body -->
 						<div class="modal-body">
-							<div class="form-group" id="inputsModal">
-								<label class="label ml-2">ID:&nbsp;</label>
+							<div class="form-group px-1" id="inputsModal">
+								<label class="label">ID:&nbsp;</label>
 								<label id="lblId" class="label ml-2" style="border:1;width:100px"></label>
 								
 								<br>
-								<label for="txtRut" class="label ml-2">RUT:</label>
+								<label for="txtRut" class="label">RUT:</label>
 								<br>
-								<input class="input-sm ml-2" type="text" id="txtRut" style="min-width:15%;" maxlength="8">
+								<input class="input-sm" type="text" id="txtRut" style="width:25%;" maxlength="8">
 								
+								<br><br>
+								<label for="txtNombre" class="label">Nombre:</label>
 								<br>
-								<label for="txtNombre" class="label ml-2 mt-3">Nombre:</label>
-								<br>
-								<input class="input-sm ml-2" type="text" id="txtNombre" maxlength="60" style="min-width:60%">
+								<input class="input-sm" type="text" id="txtNombre" 
+										maxlength="60" style="text-transform:uppercase;width:100%">
 			
+								<br><br>
+								<label for="txtDireccion" class="label">Direcci&oacute;n:</label>
 								<br>
-								<label for="txtDireccion" class="label ml-2 mt-3">Direcci&oacute;n:</label>
-								<br>
-								<input class="input-sm ml-2" type="text" id="txtDireccion" maxlength="60" style="min-width:60%">
+								<input class="input-sm" type="text" id="txtDireccion" 
+										maxlength="60" style="text-transform:uppercase;width:100%">
 			
+								<br><br>
+								<label for="txtFono" class="label">Tel&eacute;fono:</label>
 								<br>
-								<label for="txtFono" class="label ml-2 mt-3">Tel&eacute;fono:</label>
-								<br>
-								<input class="input-sm ml-2" type="text" id="txtFono" maxlength="20" style="min-width:20%">
+								<input class="input-sm" type="text" id="txtFono" maxlength="20" style="width:40%">
 			
+								<br><br>
+								<label for="txtEmail" class="label">Correo electr&oacute;nico:</label>
 								<br>
-								<label for="txtEmail" class="label ml-2 mt-3">Correo electr&oacute;nico:</label>
-								<br>
-								<input class="input-sm ml-2" type="text" id="txtEmail" maxlength="50" style="min-width:50%">
+								<input class="input-sm" type="text" id="txtEmail" maxlength="50" 
+										style="width:90%">
 							</div>
 						</div>
 		

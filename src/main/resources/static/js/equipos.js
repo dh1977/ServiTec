@@ -27,7 +27,7 @@ function ajax_listar(){
 					return;
 					
 				// Cargo los datos de la fila selecc. para modif. o elim.
-				$('.modal-title').html(modoSelecc.html()+' cliente');
+				$('.modal-title').html(modoSelecc.html()+' Equipo');
 				
 				$("#lblId").text( $(this).find('td').eq(0).text() );
 				$("#txtncontrato").val( $(this).find('td').eq(1).text() );
@@ -143,6 +143,7 @@ function nuevoEquipo() {
 	// Limpio campos del modal
 	$('#lblId').text('');
 	$('#modalEdicion input').val('');
+	$('.modal-title').html('Nuevo Equipo');
 
 	// ...y lo abro 
 	$("#modalEdicion").modal('show');
@@ -186,8 +187,6 @@ function validar_datos() {
 	let msg = '';
 	if ( isNaN(ncontrato) )
 		msg = 'Sólo números en el Numero de Contrato.';
-	else if ( parseInt(ncontrato) < 10)
-		msg = 'Al menos 2 dígitos en el Numero de Contrato.';
 	else if ( cnombre == '' )
 		msg = 'Debe indicar el nombre del equipo.';
 

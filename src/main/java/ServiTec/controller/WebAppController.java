@@ -10,16 +10,10 @@ public class WebAppController {
 		return("index");
 	}
 
-	@RequestMapping("/menu")
-	public String irMenu() {
-		return("menu");
-	}
-	
 	@RequestMapping("/clientes")
 	public String irClientes() {
 		return("clientes");
 	}
-
 	@RequestMapping("/contrato")
 	public String irContratos() {
 		return("contrato");
@@ -37,7 +31,15 @@ public class WebAppController {
 
 	@RequestMapping("/ot")
 	public String irOT() {
-		return("OT");
+		return("ot");
 	}
-
+	@RequestMapping("/menuInicio_pag.html")
+	public String ir() {
+		return("menuInicio_pag.html");
+	}
+	
+//	@RequestMapping("/login")
+//	public String index() {
+//		return("index");
+//	}
 }

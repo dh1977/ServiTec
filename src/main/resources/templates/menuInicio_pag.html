@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+	<head>
+		<meta charset="UTF-8">
+        <meta name="_csrf" th:content="${_csrf.token}"/>
+
+ 		<script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
+		<script type="text/javascript" src="/js/bootstrap.js"></script>
+		
+		<link href="/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+		<link href="/css/estilo_gral.css?version=1.01" rel="stylesheet" />
+ 		
+		<title>ServiTec</title>
+	</head>
+	
+	<body>
+		<div class="container-fluid">
+				<div class="container-fluid ml-1">
+				<div class="jumbotron mt-2">
+				<div class="row">
+					<div class="offset-2 col-8">
+						<h2>Menu Supervisor</h2>
+					</div>
+					<div class="col-2">
+						<form th:action="@{/logout}"method="POST">
+							<button type="submit" class="btn btn-warning">Salir</button>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-fluid ml-3">
+				<div class="d-flex justify-content-around">
+				  <div class="p-2">
+				  
+				 
+				  	<button type="button" class="btn" onclick=location.href="/clientes">
+				  	<img src="/img/cliente.png" height ="120" width="140" />
+				  	<p>  </p>
+				  	<p class="font-weight-bold"> CLIENTES </p>
+				 	</button>
+				 	
+				  </div>
+				  <div class="p-2">
+				  	<button type="button" class="btn" onclick=location.href="/contrato">
+				  	<img src="/img/contratos.png" height ="120" width="140" />
+				  	<p>  </p>
+				  	<p class="font-weight-bold"> CONTRATO </p>
+				  	</button>
+				  </div>
+				  <div class="p-2">
+				  	<button type="button" class="btn" onclick=location.href="/equipos">
+				  	<img src="/img/equipos.png" height ="120" width="140" />
+				  	<p>  </p>
+				  	<p class="font-weight-bold"> EQUIPOS </p>
+				 	</button>
+				 	
+				  </div>
+				</div>
+			
+				<div class="d-flex justify-content-around">
+				  <div class="p-2">
+				  
+			   		 <button type="button" class="btn" onclick=location.href="/ot" >
+					  <img src="/img/ot.png" height ="120" width="140" />
+					  <p>  </p>
+					  <p class="font-weight-bold"> ORDEN DE TRABAJO </p>
+					  </button>
+				  </div>
+				  <div class="p-2">
+				  	 <button type="button" class="btn"  onclick=location.href="/personal">
+				 	 <img src="/img/personal.png" height ="120" width="140" />
+				 	 <p>  </p>
+				 	 <p class="font-weight-bold"> PERSONAL </p>
+				  	 </button>
+				  </div>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		<footer th:replace="fragments/complementos :: pie_pagina"></footer>		
+		
+	</body>
+</html>

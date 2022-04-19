@@ -2,19 +2,19 @@
 <html xmlns:th="http://www.thymeLeaf.org">
 	<head>
 		<meta charset="UTF-8">
-<!-- 		<meta name="_csrf" th:content="${_csrf.token}"/> -->
 
  		<script type="text/javascript" src="/js/jquery-3.6.0.js"></script>
 		<script type="text/javascript" src="/js/bootstrap.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/js/toastr.min.js"></script>
 		
 		<link href="/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}" />
-		
 		<link href="/css/estilo_gral.css?version=1.01" rel="stylesheet" />
+		<link href="/css/toastr.min.css" rel="stylesheet" th:href="@{/css/toastr.min.css}" />
 		<link rel="shortcut icon" href="/images/favicon.png" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+ 		<meta name="_csrf" th:content="${_csrf.token}"/>
  		
-		<title>Clientes</title>
+		<title>Contratos</title>
 	</head>
 	
 	<body>
@@ -53,11 +53,9 @@
 						<h2>Contratos</h2>
 					</div>
 					<div class="col-2">
-<!-- 						<a href="/menu.html"> -->
-							<button class="btn btn-warning" onclick=location.href="/menu">
-								Volver
-							</button>
-<!-- 						</a>  -->
+						<a href="/menuInicio_pag.html">
+							<button class="btn btn-warning">Volver</button>
+						</a> 
 					</div>
 				</div>
 			</div>
@@ -130,7 +128,6 @@
 								<div id="selectName" class="form-group">
 								      <label for="sel1">Seleccione el cliente:</label>
 								      <select class="form-control" id="sel1">
-								        <option>seleccione</option>
 								      </select>
 							      </div>
 							    <div id="cliente">
@@ -141,16 +138,16 @@
 				
 								<label for="txtFInicio" class="label ml-2 mt-3">Fecha Inicio:</label>
 								<br>
-								<input class="form-control" type="date" id="txtFInicio" maxlength="60" style="min-width:60%">
+								<input class="form-control" type="date" id="txtFInicio" maxlength="60" style="min-width:60%" required>
 			
 								<br>
-								<label for="txtFtermino" class="label ml-2 mt-3">Fecha termino</label>
+								<label for="txtFtermino" class="label ml-2 mt-3" >Fecha termino</label>
 								<br>
-								<input class="form-control" type="date" id="txtFtermino" maxlength="60" style="min-width:60%">
+								<input class="form-control" type="date" id="txtFtermino" maxlength="60" style="min-width:60%" required>
 								<br>
 								<label for="txtperiodo" class="label ml-2 mt-3">Periodicidad</label>
 								<br>
-								<input class="form-control" type="text" id="txtperiodo" maxlength="60" style="min-width:60%">
+								<input class="form-control" type="text" id="txtperiodo" maxlength="60" style="min-width:60%" required>
 			
 								
 							</div>
